@@ -22,18 +22,18 @@ const mapUrl = "https://yandex.ru/maps/-/CTBhzNjV";
 
 export default function ContactsPage() {
   return (
-    <main className="min-h-screen bg-[#f7f6f3] px-6 py-8 text-zinc-900">
+    <main className="min-h-screen bg-beauty-background px-6 py-8 text-beauty-text">
       <div className="mx-auto max-w-md">
         <header>
           <h1 className="text-3xl font-bold">Контакты</h1>
-          <p className="mt-2 text-zinc-500">Салон красоты Мажорка</p>
+          <p className="mt-2 text-beauty-muted">Салон красоты Мажорка</p>
         </header>
 
         <section className="mt-6 space-y-4" aria-label="Контактная информация">
           {contactCards.map((card) => (
             <article
               key={card.title}
-              className="flex gap-4 rounded-[28px] bg-white p-5 shadow-md"
+              className="flex gap-4 rounded-beauty-card bg-beauty-card p-5 shadow-beauty-card"
             >
               <div className="text-3xl" aria-hidden="true">
                 {card.icon}
@@ -41,7 +41,7 @@ export default function ContactsPage() {
               <div>
                 <h2 className="text-lg font-semibold">{card.title}</h2>
                 {card.details.map((detail) => (
-                  <p key={detail} className="mt-1 text-zinc-500">
+                  <p key={detail} className="mt-1 text-beauty-muted">
                     {detail}
                   </p>
                 ))}
@@ -55,7 +55,7 @@ export default function ContactsPage() {
             href={mapUrl}
             target="_blank"
             rel="noreferrer"
-            className="relative block h-60 w-full overflow-hidden rounded-[24px] shadow-md"
+            className="relative block h-60 w-full overflow-hidden rounded-beauty-card shadow-beauty-card"
           >
             <Image
               src="/map-preview.png"
@@ -64,7 +64,7 @@ export default function ContactsPage() {
               sizes="(max-width: 448px) calc(100vw - 48px), 400px"
               className="object-cover"
             />
-            <span className="absolute bottom-4 left-4 rounded-2xl bg-black/70 px-4 py-3 text-sm font-semibold text-white">
+            <span className="absolute bottom-4 left-4 rounded-beauty-button bg-beauty-overlay px-4 py-3 text-sm font-semibold text-beauty-inverse">
               📍 Открыть карту
             </span>
           </a>
@@ -73,7 +73,7 @@ export default function ContactsPage() {
         <section className="mt-6 grid gap-3 pb-4">
           <a
             href="tel:+375445110880"
-            className="flex min-h-14 items-center justify-center rounded-2xl bg-zinc-950 px-5 text-lg font-semibold text-white shadow-lg transition hover:bg-zinc-800"
+            className="flex min-h-14 items-center justify-center rounded-beauty-button border border-beauty-border bg-beauty-card px-5 text-lg font-semibold text-beauty-text shadow-beauty-card transition hover:bg-beauty-card-hover"
           >
             📞 Позвонить
           </a>
@@ -81,7 +81,7 @@ export default function ContactsPage() {
             href={mapUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex min-h-14 items-center justify-center rounded-2xl bg-[#d4af37] px-5 text-lg font-semibold text-black shadow-lg transition hover:bg-[#c29b2e]"
+            className="flex min-h-14 items-center justify-center rounded-beauty-button bg-beauty-accent px-5 text-lg font-semibold text-beauty-text shadow-beauty-card transition hover:bg-beauty-accent-hover"
           >
             📍 Построить маршрут
           </a>

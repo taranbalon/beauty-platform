@@ -5,6 +5,7 @@ const menuItems = [
     icon: "✂️",
     title: "Услуги",
     subtitle: "Полный каталог",
+    href: "/services",
   },
   {
     icon: "👩‍🎨",
@@ -26,7 +27,7 @@ const menuItems = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f7f6f3]">
+    <main className="min-h-screen bg-beauty-background text-beauty-text">
       <div className="mx-auto flex min-h-screen max-w-md flex-col">
 
         {/* Header */}
@@ -35,7 +36,7 @@ export default function Home() {
 
           <div className="flex justify-center">
 
-            <div className="overflow-hidden rounded-full border-4 border-[#d4af37] shadow-xl">
+            <div className="overflow-hidden rounded-full border-4 border-beauty-accent shadow-beauty-card">
 
               <img
                 src="/logo.jpg"
@@ -47,11 +48,11 @@ export default function Home() {
 
           </div>
 
-          <h1 className="mt-4 text-center text-3xl font-bold text-zinc-900">
+          <h1 className="mt-4 text-center text-3xl font-bold text-beauty-text">
             Мажорка
           </h1>
 
-          <p className="mt-2 text-center text-zinc-500">
+          <p className="mt-2 text-center text-beauty-muted">
             Салон красоты
           </p>
 
@@ -59,13 +60,13 @@ export default function Home() {
 
         {/* Hero */}
 
-<section className="mx-6 mt-5 rounded-3xl bg-gradient-to-r from-zinc-950 to-zinc-800 p-5 text-white shadow-xl">
+<section className="mx-6 mt-5 rounded-beauty-banner bg-beauty-banner p-5 text-beauty-inverse shadow-beauty-banner">
 
   <div className="flex items-center justify-between gap-4">
 
     <div>
 
-      <p className="text-[11px] font-medium uppercase tracking-[3px] text-[#d4af37]">
+      <p className="text-[11px] font-medium uppercase tracking-[3px] text-beauty-accent">
         Добро пожаловать
       </p>
 
@@ -73,13 +74,13 @@ export default function Home() {
         Онлайн-запись
       </h2>
 
-      <p className="mt-1 text-sm text-zinc-300">
+      <p className="mt-1 text-sm text-beauty-banner-muted">
         Запишитесь за 30 секунд
       </p>
 
     </div>
 
-    <button className="rounded-2xl bg-[#d4af37] px-5 py-3 font-semibold text-black transition hover:scale-105">
+    <button className="rounded-beauty-button bg-beauty-accent px-5 py-3 font-semibold text-beauty-text transition hover:scale-105">
       →
     </button>
 
@@ -96,26 +97,26 @@ export default function Home() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="rounded-[28px] bg-white p-5 text-left shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="rounded-beauty-card bg-beauty-card p-5 text-left shadow-beauty-card transition duration-200 hover:-translate-y-1"
               >
                 <div className="text-4xl">{item.icon}</div>
 
                 <div className="mt-5 text-lg font-semibold">{item.title}</div>
 
-                <div className="mt-2 text-sm text-zinc-500">
+                <div className="mt-2 text-sm text-beauty-muted">
                   {item.subtitle}
                 </div>
               </Link>
             ) : (
               <button
                 key={item.title}
-                className="rounded-[28px] bg-white p-5 text-left shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl"
+                className="rounded-beauty-card bg-beauty-card p-5 text-left shadow-beauty-card transition duration-200 hover:-translate-y-1"
               >
                 <div className="text-4xl">{item.icon}</div>
 
                 <div className="mt-5 text-lg font-semibold">{item.title}</div>
 
-                <div className="mt-2 text-sm text-zinc-500">
+                <div className="mt-2 text-sm text-beauty-muted">
                   {item.subtitle}
                 </div>
               </button>
@@ -124,7 +125,7 @@ export default function Home() {
 
         </section>
 
-        <button className="mx-6 mt-4 flex items-center justify-between rounded-[28px] bg-white p-5 text-left shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-xl">
+        <button className="mx-6 mt-4 flex items-center justify-between rounded-beauty-card bg-beauty-card p-5 text-left shadow-beauty-card transition duration-200 hover:-translate-y-1">
           <div className="flex items-center gap-4">
             <div className="text-4xl">
               💰
@@ -135,13 +136,13 @@ export default function Home() {
                 Цены
               </div>
 
-              <div className="mt-2 text-sm text-zinc-500">
+              <div className="mt-2 text-sm text-beauty-muted">
                 Полный прайс-лист
               </div>
             </div>
           </div>
 
-          <div className="text-2xl text-zinc-400">
+          <div className="text-2xl text-beauty-muted">
             →
           </div>
         </button>
@@ -150,26 +151,26 @@ export default function Home() {
 
         {/* Bottom */}
 
-        <nav className="mt-8 border-t border-zinc-200 bg-white">
+        <nav className="mt-8 border-t border-beauty-border bg-beauty-card">
 
           <div className="grid grid-cols-4 py-4">
 
-            <button className="flex flex-col items-center gap-1 text-black">
+            <button className="flex flex-col items-center gap-1 text-beauty-text">
               <span>🏠</span>
               <span className="text-xs">Главная</span>
             </button>
 
-            <button className="flex flex-col items-center gap-1 text-zinc-500">
+            <button className="flex flex-col items-center gap-1 text-beauty-muted">
               <span>✂️</span>
               <span className="text-xs">Услуги</span>
             </button>
 
-            <button className="flex flex-col items-center gap-1 text-zinc-500">
+            <button className="flex flex-col items-center gap-1 text-beauty-muted">
               <span>📅</span>
               <span className="text-xs">Запись</span>
             </button>
 
-            <button className="flex flex-col items-center gap-1 text-zinc-500">
+            <button className="flex flex-col items-center gap-1 text-beauty-muted">
               <span>👤</span>
               <span className="text-xs">Профиль</span>
             </button>
