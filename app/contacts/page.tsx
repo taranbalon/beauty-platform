@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 const contactCards = [
@@ -24,11 +25,24 @@ export default function ContactsPage() {
   return (
     <main className="min-h-screen bg-beauty-background px-6 py-8 text-beauty-text">
       <div className="mx-auto max-w-md">
-        <header>
-          <h1 className="text-3xl font-bold">Контакты</h1>
-          <p className="mt-2 text-beauty-muted">Салон красоты Мажорка</p>
-        </header>
 
+  <Link
+    href="/"
+    className="inline-flex min-h-11 items-center justify-center rounded-2xl bg-beauty-accent px-5 text-sm font-semibold text-black shadow-beauty-card transition duration-200 hover:bg-beauty-accent-hover active:scale-[0.98]"
+  >
+    ← Назад
+  </Link>
+
+  <header>
+    <h1 className="mt-6 text-3xl font-bold">
+      Контакты
+    </h1>
+
+    <p className="mt-2 text-beauty-muted">
+      Салон красоты Мажорка
+    </p>
+  </header>
+          
         <section className="mt-6 space-y-4" aria-label="Контактная информация">
           {contactCards.map((card) => (
             <article

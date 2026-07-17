@@ -45,3 +45,25 @@ body {
 html {
   min-height: var(--app-viewport-stable-height);
 }
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex min-h-12 w-full items-center justify-center rounded-beauty-button bg-beauty-accent px-6 font-semibold text-beauty-text shadow-beauty-card transition duration-200 hover:bg-beauty-accent-hover active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-beauty-button bg-beauty-accent px-5 text-sm font-semibold text-beauty-text shadow-beauty-card transition duration-200 hover:bg-beauty-accent-hover active:scale-[0.98];
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-beauty-text;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-beauty-muted;
+  }
+
+  .card {
+    @apply rounded-beauty-card bg-beauty-card shadow-beauty-card;
+  }
+}

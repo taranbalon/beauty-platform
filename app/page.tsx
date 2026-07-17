@@ -8,10 +8,11 @@ const menuItems = [
     href: "/services",
   },
   {
-    icon: "👩‍🎨",
-    title: "Мастера",
-    subtitle: "Наши специалисты",
-  },
+  icon: "👩‍🎨",
+  title: "Мастера",
+  subtitle: "Наши специалисты",
+  href: "/masters",
+},
   {
     icon: "⭐",
     title: "Отзывы",
