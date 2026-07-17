@@ -126,27 +126,30 @@ export default function Home() {
 
         </section>
 
-        <button className="mx-6 mt-4 flex items-center justify-between rounded-beauty-card bg-beauty-card p-5 text-left shadow-beauty-card transition duration-200 hover:-translate-y-1">
-          <div className="flex items-center gap-4">
-            <div className="text-4xl">
-              💰
-            </div>
+        <Link
+  href="/prices"
+  className="mx-6 mt-4 flex items-center justify-between rounded-beauty-card bg-beauty-card p-5 text-left shadow-beauty-card transition duration-200 hover:-translate-y-1"
+>
+  <div className="flex items-center gap-4">
+    <div className="text-4xl">
+      💰
+    </div>
 
-            <div>
-              <div className="text-lg font-semibold">
-                Цены
-              </div>
+    <div>
+      <div className="text-lg font-semibold">
+        Цены
+      </div>
 
-              <div className="mt-2 text-sm text-beauty-muted">
-                Полный прайс-лист
-              </div>
-            </div>
-          </div>
+      <div className="mt-2 text-sm text-beauty-muted">
+        Полный прайс-лист
+      </div>
+    </div>
+  </div>
 
-          <div className="text-2xl text-beauty-muted">
-            →
-          </div>
-        </button>
+  <div className="text-2xl text-beauty-muted">
+    →
+  </div>
+</Link>
 
               <div className="flex-1" />
 

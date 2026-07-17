@@ -31,13 +31,16 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <TelegramWebApp />
-        {children}
-      </body>
-    </html>
+  lang="en"
+  className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+>
+  <body className="min-h-full bg-gray-200 flex justify-center">
+    <TelegramWebApp />
+
+    <div className="w-full max-w-[420px] min-h-screen bg-[#F7F2EC] shadow-lg">
+      {children}
+    </div>
+  </body>
+</html>
   );
 }
