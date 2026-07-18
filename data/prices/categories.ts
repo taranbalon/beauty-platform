@@ -1,54 +1,25 @@
 import { PriceCategory } from "./types";
 
+import { hairPrices } from "./hair";
+import { lashesPrices } from "./lashes";
+import { browsPrices } from "./brows";
+import { manicurePrices } from "./manicure";
+import { pedicurePrices } from "./pedicure";
+import { pmuPrices } from "./pmu";
+import { depilationPrices } from "./depilation";
+import { cosmetologyPrices } from "./cosmetology";
+import { makeupPrices } from "./makeup";
+import { massagePrices } from "./massage";
+
 export const priceCategories: PriceCategory[] = [
-  {
-    id: "hair",
-    title: "Парикмахерские услуги",
-    items: [],
-  },
-  {
-    id: "lashes",
-    title: "Наращивание ресниц",
-    items: [],
-  },
-  {
-    id: "brows",
-    title: "Брови",
-    items: [],
-  },
-  {
-    id: "nails",
-    title: "Маникюр",
-    items: [],
-  },
-  {
-    id: "pedicure",
-    title: "Педикюр",
-    items: [],
-  },
-  {
-    id: "pmu",
-    title: "Перманентный макияж",
-    items: [],
-  },
-  {
-    id: "depilation",
-    title: "Депиляция",
-    items: [],
-  },
-  {
-    id: "cosmetology",
-    title: "Косметология",
-    items: [],
-  },
-  {
-    id: "makeup",
-    title: "Макияж",
-    items: [],
-  },
-  {
-    id: "massage",
-    title: "Массаж",
-    items: [],
-  },
+  hairPrices,
+  lashesPrices,
+  browsPrices,
+  manicurePrices,
+  pedicurePrices,
+  pmuPrices,
+  depilationPrices,
+  cosmetologyPrices,
+  makeupPrices,
+  massagePrices,
 ];

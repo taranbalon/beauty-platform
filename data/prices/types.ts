@@ -1,6 +1,14 @@
+export type PriceOption = {
+  name: string;
+  price: number;
+  vipPrice?: number;
+};
+
 export type PriceItem = {
-  title: string;
-  price: string;
+  id: string;
+  name: string;
+  price?: number;
+  options?: PriceOption[];
 };
 
 export type PriceCategory = {
