@@ -1,0 +1,154 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Салон (организация) - основная сущность для multi-tenant
+model Salon {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  admins   Admin[]
+  masters  Master[]
+  categories ServiceCategory[]
+  services Service[]
+  bookings Booking[]
+
+  @@map("salons")
+}
+
+// Администратор салона
+model Admin {
+  id        String   @id @default(cuid())
+  email     String
+  password  String   // bcrypt хеш
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  salonId String
+  salon   Salon  @relation(fields: [salonId], references: [id], onDelete: Cascade)
+
+  @@unique([salonId, email])
+  @@map("admins")
+}
+
+// Категория услуг (маникюр, педикюр, ресницы и т.д.)
+model ServiceCategory {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  salonId String
+  salon   Salon    @relation(fields: [salonId], references: [id], onDelete: Cascade)
+  services Service[]
+
+  @@unique([salonId, slug])
+  @@map("service_categories")
+}
+
+// Услуга в категории
+model Service {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String
+  price     Float?   // базовая цена (может быть null)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  categoryId String
+  category   ServiceCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  salonId String
+  salon   Salon  @relation(fields: [salonId], references: [id], onDelete: Cascade)
+
+  options    ServiceOption[]
+  masterServices Master_Service[]
+  bookings   Booking[]
+
+  @@unique([categoryId, slug])
+  @@map("services")
+}
+
+// Опция услуги (например, "дизайн" для маникюра)
+model ServiceOption {
+  id        String   @id @default(cuid())
+  name      String
+  price     Float
+  vipPrice  Float?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@map("service_options")
+}
+
+// Мастер
+model Master {
+  id          String   @id @default(cuid())
+  name        String
+  profession  String
+  experience  String?
+  rating      Float    @default(0)
+  about       String?
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  salonId String
+  salon   Salon  @relation(fields: [salonId], references: [id], onDelete: Cascade)
+
+  services Master_Service[]
+  bookings Booking[]
+
+  @@map("masters")
+}
+
+// Связь между мастером и услугами
+model Master_Service {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  masterId String
+  master   Master @relation(fields: [masterId], references: [id], onDelete: Cascade)
+
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([masterId, serviceId])
+  @@map("master_services")
+}
+
+// Бронирование (для будущей функциональности)
+model Booking {
+  id        String   @id @default(cuid())
+  clientName String
+  phone     String
+  dateTime  DateTime
+  notes     String?
+  status    String   @default("pending") // pending, confirmed, cancelled
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  salonId String
+  salon   Salon  @relation(fields: [salonId], references: [id], onDelete: Cascade)
+
+  masterId String
+  master   Master @relation(fields: [masterId], references: [id], onDelete: Cascade)
+
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@map("bookings")
+}

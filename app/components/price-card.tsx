@@ -1,11 +1,17 @@
+import Link from "next/link";
+
 import { PriceItem } from "@/data/prices/types";
 import BookingButton from "@/app/components/booking-button";
 
 type PriceCardProps = {
   item: PriceItem;
+  bookingHref?: string;
 };
 
-export default function PriceCard({ item }: PriceCardProps) {
+export default function PriceCard({
+  item,
+  bookingHref,
+}: PriceCardProps) {
   return (
     <div className="rounded-3xl border border-gray-100 bg-white p-6 shadow-beauty-card">
       <h2 className="text-xl font-bold text-gray-900">
@@ -39,7 +45,13 @@ export default function PriceCard({ item }: PriceCardProps) {
         </div>
       ))}
 
-      <BookingButton />
+      {bookingHref ? (
+        <Link href={bookingHref}>
+          <BookingButton />
+        </Link>
+      ) : (
+        <BookingButton />
+      )}
     </div>
   );
 }

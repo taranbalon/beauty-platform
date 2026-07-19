@@ -1,29 +1,24 @@
-import Link from "next/link";
+import { CategoryCard } from "@/components/category-card";
 import PageHeader from "@/app/components/page-header";
-import { priceCategories } from "@/data/prices/categories";
+import { categories } from "@/data/categories";
 
 export default function PricesPage() {
   return (
     <main className="min-h-screen bg-beauty-background px-6 py-8 text-beauty-text">
       <div className="mx-auto w-full max-w-[420px]">
 
-        <PageHeader title="Прайс" />
+        <PageHeader
+          title="Прайс"
+          backHref="/"
+        />
 
         <section className="mt-6 space-y-4">
-          {priceCategories.map((category) => (
-            <Link
+          {categories.map((category) => (
+            <CategoryCard
               key={category.id}
+              category={category}
               href={`/prices/${category.id}`}
-              className="block rounded-beauty-card bg-beauty-card p-5 shadow-beauty-card transition duration-200 hover:scale-[1.01]"
-            >
-              <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold">
-                  {category.title}
-                </h2>
-
-                <span className="text-2xl">›</span>
-              </div>
-            </Link>
+            />
           ))}
         </section>
 

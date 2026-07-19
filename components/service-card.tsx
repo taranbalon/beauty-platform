@@ -8,7 +8,7 @@ type ServiceCardProps = {
 export function ServiceCard({ service }: ServiceCardProps) {
   return (
     <Link
-      href={`/masters/${service.id}`}
+      href={`/booking/${service.id}`}
       className="flex w-full items-center gap-4 rounded-beauty-card bg-beauty-card p-5 text-left shadow-beauty-card transition duration-200 hover:-translate-y-1 active:scale-[0.98]"
     >
       <span

@@ -1,5 +1,5 @@
-import { ServiceCard } from "@/components/service-card";
-import { services } from "@/data/services";
+import { CategoryCard } from "@/components/category-card";
+import { categories } from "@/data/categories";
 import PageHeader from "@/app/components/page-header";
 
 export default function ServicesPage() {
@@ -10,13 +10,15 @@ export default function ServicesPage() {
         <PageHeader
           title="Услуги"
           subtitle="Выберите интересующее направление"
+          backHref="/"
         />
 
         <section className="mt-6 space-y-4">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
+          {categories.map((category) => (
+            <CategoryCard
+              key={category.id}
+              category={category}
+              href={`/booking/${category.id}`}
             />
           ))}
         </section>

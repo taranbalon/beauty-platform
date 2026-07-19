@@ -7,19 +7,19 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    id: "lash-extensions",
+    id: "lashes",
     icon: "👁",
     name: "Наращивание ресниц",
     description: "",
   },
   {
-    id: "universal-hairdresser",
+    id: "hair",
     icon: "✂️",
     name: "Парикмахер",
     description: "",
   },
   {
-    id: "hair-stylist",
+    id: "hair",
     icon: "💇",
     name: "Парикмахер-стилист",
     description: "",
@@ -37,25 +37,25 @@ export const services: Service[] = [
     description: "",
   },
   {
-    id: "nail-correction",
+    id: "manicure",
     icon: "✨",
     name: "Коррекция ногтей",
     description: "Укрепление / Ремонт",
   },
   {
-    id: "lash-maker",
+    id: "lashes",
     icon: "🌿",
     name: "Ламимейкер",
     description: "",
   },
   {
-    id: "brow-artist",
+    id: "brows",
     icon: "🤎",
     name: "Бровист",
     description: "",
   },
   {
-    id: "permanent-makeup",
+    id: "pmu",
     icon: "🎨",
     name: "Мастер перманентного макияжа",
     description: "",

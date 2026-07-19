@@ -24,6 +24,7 @@ export default async function PriceCategoryPage({ params }: Props) {
         <PageHeader
           title={priceCategory.title}
           subtitle="Прайс-лист"
+          backHref="/prices"
         />
 
         <div className="mt-8 space-y-4">
@@ -31,6 +32,7 @@ export default async function PriceCategoryPage({ params }: Props) {
             <PriceCard
               key={item.id}
               item={item}
+              bookingHref={`/booking/${category}/${item.id}`}
             />
           ))}
         </div>

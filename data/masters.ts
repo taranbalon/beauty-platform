@@ -18,7 +18,7 @@ export const masters: Master[] = [
     experience: "8 лет",
     rating: 5.0,
     about: "Наращивание ресниц любой сложности.",
-    services: ["lash-extensions"],
+    services: ["lashes"],
   },
   {
     id: "anastasiya-ugvariya",
@@ -28,7 +28,17 @@ export const masters: Master[] = [
     experience: "6 лет",
     rating: 4.9,
     about: "Классика, объём, современные техники.",
-    services: ["lash-extensions"],
+    services: ["lashes"],
+  },
+  {
+    id: "anastasiya-depilation",
+    name: "Анастасия",
+    profession: "Мастер депиляции • Бровист • Наращивание ресниц • Ламимейкер",
+    image: "/masters/anastasiya-depilation-lashes.jpg",
+    experience: "8 лет",
+    rating: 5.0,
+    about: "Профессиональная депиляция, наращивание ресниц, оформление бровей и ламинирование.",
+    services: ["depilation", "lashes", "brows"],
   },
   {
     id: "tatyana-romanovich",
@@ -38,7 +48,7 @@ export const masters: Master[] = [
     experience: "18 лет",
     rating: 5.0,
     about: "Женские и мужские стрижки, окрашивание.",
-    services: ["universal-hairdresser"],
+    services: ["hair"],
   },
   {
     id: "tatyana-tolstaya",
@@ -48,7 +58,7 @@ export const masters: Master[] = [
     experience: "15 лет",
     rating: 4.9,
     about: "Стрижки, окрашивание, уход за волосами.",
-    services: ["universal-hairdresser"],
+    services: ["hair"],
   },
   {
     id: "svetlana",
@@ -58,7 +68,7 @@ export const masters: Master[] = [
     experience: "12 лет",
     rating: 4.9,
     about: "Современные стрижки и укладки.",
-    services: ["universal-hairdresser"],
+    services: ["hair"],
   },
   {
     id: "ekaterina-lobazova",
@@ -68,7 +78,7 @@ export const masters: Master[] = [
     experience: "10 лет",
     rating: 4.9,
     about: "Окрашивание, уход и восстановление волос.",
-    services: ["universal-hairdresser"],
+    services: ["hair"],
   },
   {
     id: "marina",
@@ -78,7 +88,7 @@ export const masters: Master[] = [
     experience: "20 лет",
     rating: 5.0,
     about: "Создание индивидуального образа.",
-    services: ["hair-stylist"],
+    services: ["hair"],
   },
   {
     id: "ekaterina",
@@ -89,9 +99,9 @@ export const masters: Master[] = [
     rating: 5.0,
     about: "Перманентный макияж, оформление бровей и ламинирование ресниц.",
     services: [
-      "permanent-makeup",
-      "brow-artist",
-      "lash-maker",
+      "pmu",
+      "brows",
+      "lashes",
     ],
   },
   {

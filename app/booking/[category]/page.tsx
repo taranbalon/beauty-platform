@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-
-import PageHeader from "../../components/page-header";
-import { getPriceCategory } from "../../../data/prices";
+import PageHeader from "@/app/components/page-header";
+import PriceCard from "@/app/components/price-card";
+import { getPriceCategory } from "@/data/prices";
 
 type Props = {
   params: Promise<{
@@ -13,52 +12,29 @@ type Props = {
 export default async function BookingCategoryPage({ params }: Props) {
   const { category } = await params;
 
-  const data = getPriceCategory(category);
+  const priceCategory = getPriceCategory(category);
 
-  if (!data) {
+  if (!priceCategory) {
     notFound();
   }
 
   return (
-    <main className="min-h-screen bg-beauty-background text-beauty-text">
-      <div className="mx-auto max-w-md px-6 py-6">
+    <main className="min-h-screen bg-beauty-background px-6 py-8">
+      <div className="mx-auto w-full max-w-[420px]">
         <PageHeader
-          title={data.title}
+          title={priceCategory.title}
           subtitle="Выберите услугу"
+          backHref="/booking"
         />
 
-        <div className="mt-6 space-y-4">
-          {data.items.map((item) => {
-            const minPrice =
-              item.price ??
-              (item.options
-                ? Math.min(...item.options.map((option) => option.price))
-                : undefined);
-
-            return (
-              <Link
-                key={item.id}
-                href="#"
-                className="flex items-center justify-between rounded-beauty-card bg-beauty-card p-5 shadow-beauty-card transition duration-200 hover:-translate-y-1"
-              >
-                <div>
-                  <div className="text-lg font-semibold">
-                    {item.name}
-                  </div>
-
-                  {minPrice && (
-                    <div className="mt-2 text-sm text-beauty-muted">
-                      от {minPrice} BYN
-                    </div>
-                  )}
-                </div>
-
-                <span className="text-xl text-beauty-muted">
-                  →
-                </span>
-              </Link>
-            );
-          })}
+        <div className="mt-8 space-y-4">
+          {priceCategory.items.map((item) => (
+            <PriceCard
+              key={item.id}
+              item={item}
+              bookingHref={`/booking/${category}/${item.id}`}
+            />
+          ))}
         </div>
       </div>
     </main>
