@@ -4,28 +4,33 @@ type PageHeaderProps = {
   title: string;
   subtitle?: string;
   backHref?: string;
+  rightAction?: React.ReactNode;
 };
 
 export default function PageHeader({
   title,
   subtitle,
-  backHref,
+  backHref = "/",
+  rightAction,
 }: PageHeaderProps) {
   return (
-    <div className="mb-8">
-      <BackButton href={backHref} />
+    <header className="mb-6">
+      <div className="flex items-center justify-between">
+        <BackButton href={backHref} />
+        {rightAction && <div>{rightAction}</div>}
+      </div>
 
-      <div className="mt-8 text-center">
-        <h1 className="text-4xl font-bold">
+      <div className="mt-4">
+        <h1 className="text-2xl font-bold tracking-tight text-zinc-900 sm:text-3xl">
           {title}
         </h1>
 
         {subtitle && (
-          <p className="mt-2 text-gray-500">
+          <p className="mt-1 text-sm text-zinc-500 font-normal leading-relaxed">
             {subtitle}
           </p>
         )}
       </div>
-    </div>
+    </header>
   );
 }

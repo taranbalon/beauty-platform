@@ -4,15 +4,18 @@ import { categories } from "@/data/categories";
 
 export default function PricesPage() {
   return (
-    <main className="min-h-screen bg-beauty-background px-6 py-8 text-beauty-text">
-      <div className="mx-auto w-full max-w-[420px]">
-
+    <main className="min-h-screen px-5 py-6 md:px-8 md:py-10 text-zinc-900">
+      <div className="mx-auto w-full max-w-md md:max-w-4xl lg:max-w-6xl">
         <PageHeader
-          title="Прайс"
+          title="Цены на услуги"
+          subtitle="Выберите направление для просмотра подробного прайс-листа"
           backHref="/"
         />
 
-        <section className="mt-6 space-y-4">
+        <section
+          aria-label="Категории цен"
+          className="mt-6 space-y-3.5 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5"
+        >
           {categories.map((category) => (
             <CategoryCard
               key={category.id}
@@ -21,7 +24,6 @@ export default function PricesPage() {
             />
           ))}
         </section>
-
       </div>
     </main>
   );

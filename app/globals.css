@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f4ef;
+  --background: #f4f1ea;
   --foreground: #18181b;
   --app-viewport-height: var(--tg-viewport-height, 100dvh);
   --app-viewport-stable-height: var(--tg-viewport-stable-height, 100dvh);
@@ -12,25 +12,33 @@
 }
 
 @theme inline {
-  --color-beauty-background: #f7f4ef;
+  --color-beauty-background: #faf8f5;
   --color-beauty-card: #ffffff;
   --color-beauty-text: #18181b;
   --color-beauty-muted: #71717a;
   --color-beauty-inverse: #ffffff;
-  --color-beauty-banner-muted: #d4d4d8;
+  --color-beauty-banner-muted: #a1a1aa;
   --color-beauty-accent: #d4af37;
   --color-beauty-accent-hover: #c29b2e;
   --color-beauty-banner: #18181b;
   --color-beauty-border: #e4e4e7;
   --color-beauty-card-hover: #f4f4f5;
   --color-beauty-overlay: rgb(24 24 27 / 70%);
-  --radius-beauty-card: 24px;
-  --radius-beauty-banner: 28px;
-  --radius-beauty-button: 18px;
-  --shadow-beauty-card: 0 8px 24px rgb(0 0 0 / 8%);
-  --shadow-beauty-banner: 0 20px 50px rgb(0 0 0 / 18%);
+  --radius-beauty-card: 16px;
+  --radius-beauty-banner: 20px;
+  --radius-beauty-button: 12px;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+::selection {
+  background-color: #d4af37;
+  color: #18181b;
+}
+
+:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
 }
 
 body {
@@ -48,22 +56,22 @@ html {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex min-h-12 w-full items-center justify-center rounded-beauty-button bg-beauty-accent px-6 font-semibold text-beauty-text shadow-beauty-card transition duration-200 hover:bg-beauty-accent-hover active:scale-[0.98];
+    @apply inline-flex min-h-11 w-full items-center justify-center rounded-xl bg-beauty-accent px-5 font-semibold text-zinc-950 shadow-2xs transition duration-150 hover:bg-beauty-accent-hover active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-beauty-button bg-beauty-accent px-5 text-sm font-semibold text-beauty-text shadow-beauty-card transition duration-200 hover:bg-beauty-accent-hover active:scale-[0.98];
+    @apply inline-flex min-h-10 items-center justify-center rounded-xl border border-zinc-200/90 bg-white px-4 text-xs font-semibold text-zinc-900 shadow-2xs transition duration-150 hover:bg-zinc-50 active:scale-[0.98];
   }
 
   .page-title {
-    @apply text-3xl font-bold text-beauty-text;
+    @apply text-2xl md:text-3xl font-bold tracking-tight text-zinc-900;
   }
 
   .page-subtitle {
-    @apply text-sm text-beauty-muted;
+    @apply text-xs md:text-sm text-zinc-500;
   }
 
   .card {
-    @apply rounded-beauty-card bg-beauty-card shadow-beauty-card;
+    @apply rounded-2xl border border-zinc-200/90 bg-white shadow-2xs;
   }
 }

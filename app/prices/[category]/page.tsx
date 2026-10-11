@@ -19,15 +19,15 @@ export default async function PriceCategoryPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-beauty-background px-6 py-8">
-      <div className="mx-auto w-full max-w-[420px]">
+    <main className="min-h-screen px-5 py-6 md:px-8 md:py-10 text-zinc-900">
+      <div className="mx-auto w-full max-w-md md:max-w-4xl lg:max-w-6xl">
         <PageHeader
           title={priceCategory.title}
-          subtitle="Прайс-лист"
+          subtitle="Прайс-лист и онлайн-запись на услуги"
           backHref="/prices"
         />
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-8 space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
           {priceCategory.items.map((item) => (
             <PriceCard
               key={item.id}

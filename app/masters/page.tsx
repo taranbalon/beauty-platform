@@ -16,18 +16,22 @@ export default async function MastersPage({ searchParams }: Props) {
     : masters;
 
   return (
-    <main className="min-h-screen bg-beauty-background px-6 py-8 text-beauty-text">
-      <div className="mx-auto max-w-md">
+    <main className="min-h-screen px-5 py-6 md:px-8 md:py-10 text-zinc-900">
+      <div className="mx-auto w-full max-w-md md:max-w-4xl lg:max-w-6xl">
         <PageHeader
           title="Наши специалисты"
           subtitle={
             service
-              ? "Выберите специалиста"
-              : "Познакомьтесь с нашей командой"
+              ? "Выберите специалиста для выбранной услуги"
+              : "Познакомьтесь с командой топ-мастеров салона Мажорка"
           }
+          backHref="/"
         />
 
-        <section className="mt-8 space-y-10">
+        <section
+          aria-label="Список мастеров"
+          className="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+        >
           {filteredMasters.map((master) => (
             <MasterCard
               key={master.id}
